@@ -1,0 +1,62 @@
+@import '~@/themes/vars.less';
+
+.articleListCard {
+  width: 100%;
+  padding: 20px;
+  opacity: 0.8;
+  background-color: #fff;
+
+  &:active,
+  &:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.01);
+    transition: all 0.3s ease-in-out 0s;
+  }
+  .contentWrap {
+    width: calc(100% - 150px);
+    padding-left: 20px;
+
+    .title {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .description {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+  .mobileContentWrap {
+    width: calc(100% - 80px);
+    padding-left: 10px;
+    .title {
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .description {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+
+  .heroImageSize {
+    width: 80px;
+    height: 50px;
+  }
+  .sourceStyle {
+    font-size: 10px;
+    transform: scale(0.9);
+    right: 6px;
+    top: 6px;
+  }
+}
+
+:global {
+  .mc-card-bordered {
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+}

@@ -1,0 +1,50 @@
+// body::-webkit-scrollbar {
+//   width: 10px;
+//   height: 8px;
+//   background-color: rgb(215, 216, 214);
+// }
+figure {
+  margin: 0;
+}
+a {
+  color: #333;
+  &:active,
+  &:hover {
+    text-decoration: underline;
+    outline: none;
+    color: #333;
+  }
+}
+.mc-drawer-content-wrapper {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  // left: 0px;
+  z-index: 1000;
+  overflow: auto;
+  outline: 0px;
+}
+
+.mc-layout-header {
+  height: auto;
+  padding: 0px;
+  line-height: normal;
+  background-color: transparent;
+}
+
+.mc-divider-horizontal {
+  margin: 0px;
+  padding: 0 10px;
+}
+.mc-menu:not(.mc-menu-horizontal) .mc-menu-item-selected {
+  background-color: transparent;
+}
+
+.mc-input:focus,
+.mc-input-focused {
+  border-right-width: 0px !important;
+  border: none;
+  outline: none;
+  box-shadow: inherit;
+}

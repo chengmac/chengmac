@@ -1,0 +1,80 @@
+.headerDiv {
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0px;
+  background-color: #fff;
+  z-index: 10;
+}
+.searchWrap {
+  width: 620px;
+  height: 60px;
+  margin: 0px auto;
+  color: #666;
+
+  .inlineBlock {
+    width: 0px;
+    display: inline-block;
+    float: right;
+    transition: width 0.5s ease 0s;
+  }
+}
+.mobileSearchWrap {
+  width: 100%;
+  height: 50px;
+  padding: 0px 10px;
+}
+.visibility {
+  visibility: visible;
+}
+.hidden {
+  visibility: hidden;
+}
+.searchBackground {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 60px;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+.input {
+  height: 60px;
+  transition: opacity 0.3s linear 0s;
+  width: calc(100% - 40px);
+  display: inline-block;
+  font-weight: 400;
+  color: rgb(51, 51, 51);
+  font-size: 0.875rem;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  padding: 0px 15px !important;
+  outline: none;
+  :global {
+    .vg-input-affix-wrapper {
+      color: rgb(51, 51, 51);
+      font-size: 12px;
+      line-height: 1.5;
+      font-feature-settings: 'tnum';
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      text-align: start;
+      margin: 0px;
+      padding: 0px;
+      font-variant: tabular-nums;
+      list-style: none;
+    }
+  }
+}
+.icon {
+  font-size: 20px;
+  transition: opacity 0.3s linear 0s;
+}
+.closeSearch {
+  transition: opacity 0.3s linear 0s;
+  font-size: 20px;
+  cursor: pointer;
+}

@@ -1,0 +1,100 @@
+.header {
+  width: 100%;
+  box-shadow: -1px -1px 10px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 9;
+  background-color: #fff !important;
+
+  .headerWrap {
+    max-width: 960px;
+    margin: 0 auto;
+
+    .headerLeft {
+      float: left;
+    }
+    .headerRight {
+      float: right;
+
+      .search {
+        padding: 0 20px;
+        height: 60px;
+        line-height: 60px;
+        :global {
+          .anticon-search {
+            font-size: 20px;
+            color: #666;
+          }
+        }
+      }
+    }
+    .logo {
+      line-height: 60px;
+      padding: 0 10px;
+      font-size: 22px;
+      color: #1890ff;
+      &:hover,
+      :active {
+        text-decoration: none;
+      }
+    }
+  }
+  .openMenuBtn {
+    padding: 0 10px;
+    height: 50px;
+    line-height: 50px;
+  }
+  .openMenu,
+  .closeMenu {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    transform: rotate(0deg);
+    transition: all 0.5s ease-in-out 0s;
+    span {
+      position: absolute;
+      display: block;
+      right: 0px;
+      opacity: 1;
+      width: 100%;
+      height: 1.333px;
+      background-color: #333;
+      border-radius: 9px;
+      transform: rotate(0deg);
+      transition: all 0.25s ease-in-out 0s;
+    }
+  }
+  .openMenu {
+    span:first-child {
+      top: 1px;
+      transform-origin: left center;
+    }
+    span:nth-child(2) {
+      top: 9.5px;
+      transform-origin: left center;
+    }
+    span:last-child {
+      top: 18px;
+      transform-origin: left center;
+    }
+  }
+  .closeMenu {
+    span:first-child {
+      top: 9px;
+      left: 0px;
+      transform: rotate(45deg);
+    }
+    span:nth-child(2) {
+      top: 9px;
+      width: 0px;
+      opacity: 0;
+      left: 0px;
+    }
+    span:last-child {
+      top: 9px;
+      left: 0px;
+      transform: rotate(-45deg);
+    }
+  }
+}
