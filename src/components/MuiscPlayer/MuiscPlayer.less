@@ -1,0 +1,100 @@
+@import '~@/themes/vars.less';
+
+.muiscPlayer {
+  width: 100%;
+  height: 100%;
+  // background-image: url('http://singerimg.kugou.com/uploadpic/softhead/400/20210103/20210103100705627.jpg');
+  // background-position: 50%;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // background-color: rgba(0,0,0,.3);
+  // z-index: -1;
+  .muiscName {
+    margin: 0 30px 15px 30px;
+    overflow: hidden;
+    .muiscNameText {
+      white-space: nowrap;
+      display: inline-block;
+      color: #888;
+      animation: muisc-translate-x 5s linear infinite;
+    }
+  }
+  .controllers {
+    padding-top: 15px;
+    .justify();
+    justify-content: space-around;
+
+    :global {
+      .mc-btn {
+        width: auto;
+        height: auto;
+        padding: 0px;
+      }
+      .anticon {
+        font-size: 20px;
+        color: #888;
+        padding: 3px;
+      }
+    }
+  }
+  .muiscImageWrap {
+    .justify();
+
+    .muiscImage {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+      position: relative;
+      background: hsla(0, 0%, 98%, 0.7);
+      &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 50%;
+        box-shadow: inset 0 0 0 6px hsla(0, 0%, 100%, 0.6),
+          0 1px 2px rgba(0, 0, 0, 0.3);
+        z-index: 100;
+      }
+
+      .muisc {
+        border-radius: 50%;
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+        background-color: #efefef;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        animation: muisc-rotate 9.5s linear infinite;
+      }
+
+      .paused {
+        animation-play-state: paused;
+      }
+      .running {
+        animation-play-state: running;
+      }
+    }
+  }
+}
+
+@keyframes muisc-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes muisc-translate-x {
+  0% {
+    transform: translateX(140px);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

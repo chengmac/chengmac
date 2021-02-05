@@ -9,10 +9,12 @@ class Footer extends PureComponent {
 
     return (
       <Layout.Footer className={styles.footer}>
+        <div className={styles.headerWrap}>麻衣逢雪暖，草履蹑云轻</div>
         <div className={styles.headerWrap}>
-          系统由 React+Node+Ant Desgin驱动
+          <a href="https://beian.miit.gov.cn" target="_bank">
+            陕ICP备18021642号-2
+          </a>
         </div>
-        <div className={styles.headerWrap}>chengmac.cn</div>
       </Layout.Footer>
     );
   }

@@ -2,7 +2,7 @@ import React, { Fragment, PureComponent } from 'react';
 import styles from './ArticleListCard.less';
 import { Row, Typography, Skeleton, Card } from 'antd';
 import HeroImage from '@/components/HeroImage/HeroImage';
-import ArticleMetaInfo from '../ArticleMetaInfo/ArticleMetaInfo';
+import ArticleMetaInfo from '../../ArticleMetaInfo/ArticleMetaInfo';
 import { NavLink, history } from 'umi';
 import _ from 'lodash';
 import { Parser } from 'html-to-react';

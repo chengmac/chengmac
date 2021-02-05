@@ -8,7 +8,7 @@ class AntdButton extends PureComponent {
   render() {
     const {
       isMobile,
-      noBorder,
+      noBorder = false,
       className,
       children,
       ...resetProps

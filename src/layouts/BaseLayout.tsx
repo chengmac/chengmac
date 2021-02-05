@@ -1,5 +1,4 @@
 import React, { Fragment, PureComponent } from 'react';
-import Cookies from 'js-cookie';
 import config from '@/utils/config';
 import { queryLayout } from '@/utils';
 import LandingLayout from './LandingLayout';
@@ -49,7 +48,6 @@ class BaseLayout extends PureComponent {
     };
     const { children } = this.props;
     let layout = queryLayout(config.layouts, location.pathname);
-    console.log(layout);
     let Containner = Layouts[layout];
     return (
       <Fragment>

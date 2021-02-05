@@ -22,6 +22,7 @@ const generateApiMap = (params: any) => {
       method,
       ...params,
       data,
+      credentials: 'include',
     };
     if (method === '') {
       options = Object.assign(options, { params: data });

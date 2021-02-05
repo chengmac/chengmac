@@ -9,7 +9,6 @@ import classnames from 'classnames';
 class Header extends PureComponent {
   render() {
     const { isMobile, siderVisible } = this.props;
-    console.log(isMobile);
     let headerLeft = [],
       headerRight = [];
     const logo = (

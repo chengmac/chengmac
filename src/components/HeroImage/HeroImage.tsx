@@ -15,6 +15,9 @@ class HeroImage extends PureComponent {
       sm,
       md,
       lg,
+      width,
+      height,
+      isMobile,
       ...resetProps
     } = this.props;
 
@@ -23,7 +26,7 @@ class HeroImage extends PureComponent {
         {!src ? (
           <Skeleton.Input
             active={true}
-            style={{ width: 80, height: 50 }}
+            style={{ width: width || 80, height: height || 50 }}
             loading={!src}
           />
         ) : (
@@ -32,6 +35,7 @@ class HeroImage extends PureComponent {
               [styles.sm]: !!sm,
               [styles.md]: !!md,
               [styles.lg]: !!lg,
+              [styles.mobile]: isMobile,
             })}
             {...resetProps}
           >
@@ -51,6 +55,7 @@ class HeroImage extends PureComponent {
                 [styles.sm]: !!sm,
                 [styles.md]: !!md,
                 [styles.lg]: !!lg,
+                [styles.mobile]: isMobile,
               })}
             />
           </figure>

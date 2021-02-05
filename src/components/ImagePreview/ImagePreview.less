@@ -1,0 +1,23 @@
+@import '~@/themes/vars.less';
+
+.image {
+  cursor: zoom-in;
+}
+.previewImage {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.6);
+  .justify();
+  cursor: zoom-out;
+
+  .forMoblie({padding: 20px;});
+
+  img {
+    border: 5px solid #ddd;
+  }
+}

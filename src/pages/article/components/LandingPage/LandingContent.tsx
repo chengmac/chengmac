@@ -7,8 +7,9 @@ import LandingRightColumn from './LandingRightColumn/LandingRightColumn';
 
 class LandingContent extends PureComponent {
   render() {
-    const { app, articleList } = this.props;
-    const { isMobile } = app;
+    const { app, dispatch, loading } = this.props;
+    const { isMobile, labelList, articleList, currentMuisc, muiscIdList } = app;
+    console.log(this.props);
     return (
       <Fragment>
         {!isMobile ? (
@@ -20,7 +21,13 @@ class LandingContent extends PureComponent {
               />
             </Col>
             <Col span={6}>
-              <LandingRightColumn />
+              <LandingRightColumn
+                labelList={labelList}
+                dispatch={dispatch}
+                currentMuisc={currentMuisc}
+                muiscIdList={muiscIdList}
+                loading={loading}
+              />
             </Col>
           </Row>
         ) : (

@@ -48,3 +48,10 @@ a {
   outline: none;
   box-shadow: inherit;
 }
+
+// clear button animation
+button[mc-click-animating-without-extra-node]:after {
+  border: 0 none;
+  opacity: 0;
+  animation: none 0 ease 0 normal;
+}
