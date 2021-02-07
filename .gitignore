@@ -9,6 +9,8 @@
 
 # production
 /dist
+/chengmac
+*.zip
 
 # misc
 .DS_Store

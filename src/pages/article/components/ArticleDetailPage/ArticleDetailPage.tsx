@@ -118,19 +118,25 @@ class ArticleDetailPage extends PureComponent {
                   />
                   <HeroImage
                     source={true}
+                    width={document.documentElement.clientWidth - 40}
+                    height={220}
                     isOrigin={!articleDetail.type}
                     src={articleDetail.heroImage}
                     className={styles.heroImageSize}
                     sourceStyle={styles.sourceStyle}
                     isMobile={isMobile}
                   />
-                  <div className={styles.artileContent}>
-                    {HtmlToReactParser.parseWithInstructions(
-                      articleDetail.content,
-                      () => true,
-                      this.processingInstructions,
-                    )}
-                  </div>
+                  {_.isEmpty(articleDetail) ? (
+                    _.map(_.times(3, Number), () => <Skeleton active />)
+                  ) : (
+                    <div className={styles.artileContent}>
+                      {HtmlToReactParser.parseWithInstructions(
+                        articleDetail.content,
+                        () => true,
+                        this.processingInstructions,
+                      )}
+                    </div>
+                  )}
                 </div>
               </Col>
             </Row>

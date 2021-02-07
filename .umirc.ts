@@ -10,4 +10,5 @@ export default defineConfig({
     hmr: false,
   },
   theme: themeConfig,
+  outputPath: './chengmac',
 });
