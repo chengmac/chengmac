@@ -18,6 +18,13 @@ class LandingLayout extends PureComponent {
     this.setState({
       searchVisible: true,
     });
+    this.props.dispatch({
+      type: 'app/updateSearchContent',
+      payload: {
+        searchList: [],
+        searchContent: '',
+      },
+    });
   }
   closeSearch() {
     this.setState({
@@ -49,8 +56,8 @@ class LandingLayout extends PureComponent {
     }
   }
   render() {
-    const { children, app } = this.props;
-    const { isMobile, minHeight } = app;
+    const { children, app, dispatch, loading } = this.props;
+    const { isMobile, minHeight, searchList, searchContent } = app;
     const headerProps = {
       isMobile: isMobile,
       openSearch: this.openSearch.bind(this),
@@ -65,6 +72,10 @@ class LandingLayout extends PureComponent {
             isMobile={isMobile}
             visible={this.state.searchVisible}
             closeSearch={this.closeSearch.bind(this)}
+            dispatch={dispatch}
+            loading={loading}
+            searchList={searchList}
+            searchContent={searchContent}
           />
           {isMobile && (
             <Drawer
@@ -99,6 +110,9 @@ class LandingLayout extends PureComponent {
     );
   }
 }
-export default connect(({ app }: { app: AppModelState }) => ({
-  app,
-}))(LandingLayout);
+export default connect(
+  ({ app, loading }: { app: AppModelState; loading: any }) => ({
+    app,
+    loading,
+  }),
+)(LandingLayout);

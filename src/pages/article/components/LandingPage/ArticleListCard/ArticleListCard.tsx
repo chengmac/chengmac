@@ -37,11 +37,14 @@ class ArticleListCard extends PureComponent {
                 />
                 <div className={styles.contentWrap}>
                   <NavLink to={`/article/${article.articleId}`}>
-                    <Paragraph className={styles.title}>
+                    <Paragraph className={styles.title} ellipsis={{ rows: 1 }}>
                       {article.title}
                     </Paragraph>
                   </NavLink>
-                  <Paragraph className={styles.description} ellipsis>
+                  <Paragraph
+                    className={styles.description}
+                    ellipsis={{ rows: 1 }}
+                  >
                     {article.subtitle}
                   </Paragraph>
                   <ArticleMetaInfo

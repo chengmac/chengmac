@@ -1,3 +1,4 @@
+@import '~@/themes/vars.less';
 .headerDiv {
   width: 100%;
   height: auto;
@@ -77,4 +78,39 @@
   transition: opacity 0.3s linear 0s;
   font-size: 20px;
   cursor: pointer;
+}
+.notFound {
+  font-size: 14px;
+  color: #aaa;
+  text-align: center;
+}
+
+.searchContentWrap {
+  background-color: #fff;
+  margin: 0 auto;
+  padding: 20px;
+  border-top: 1px solid #ddd;
+
+  .searvhResult {
+    .justify();
+    justify-content: space-between;
+    padding-bottom: 20px;
+  }
+  .searvhResult:last-child {
+    padding-bottom: 0px;
+  }
+  .contentWrap {
+    width: calc(100% - 00px);
+    padding-left: 20px;
+
+    .title {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .description {
+      font-size: 14px;
+      color: #666;
+    }
+  }
 }

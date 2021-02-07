@@ -6,4 +6,7 @@ export default {
   // muisc
   getLikeMiuscList: '/muisc/getLikeMiuscList',
   getMiuscDetail: '/muisc/getMiuscDetail',
+
+  // search
+  search: '/article/search',
 };

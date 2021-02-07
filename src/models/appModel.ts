@@ -9,6 +9,7 @@ const {
   login,
   getLikeMiuscList,
   getMiuscDetail,
+  search,
 } = Api;
 
 export interface AppModelState {
@@ -18,6 +19,8 @@ export interface AppModelState {
   labelList: [];
   muiscIdList: [];
   currentMuisc: {};
+  searchList: [];
+  searchContent: '';
 }
 export interface AppModelType {
   namespace: 'app';
@@ -28,6 +31,8 @@ export interface AppModelType {
     getLabelList: Effect;
     getLikeMiuscList: Effect;
     getMiuscDetail: Effect;
+    headerSearch: Effect;
+    updateSearchContent: Effect;
   };
   reducers: {
     updateStateSuccess: ImmerReducer<AppModelState>;
@@ -35,6 +40,7 @@ export interface AppModelType {
     getLabelListSuccess: ImmerReducer<AppModelState>;
     getMiuscListSuccess: ImmerReducer<AppModelState>;
     miuscObjectSuccess: ImmerReducer<AppModelState>;
+    headerSearchSuccess: ImmerReducer<AppModelState>;
   };
   subscriptions: { setup: Subscription };
 }
@@ -48,6 +54,8 @@ const AppModel: AppModelType = {
     labelList: [],
     muiscIdList: [],
     currentMuisc: {},
+    searchList: [],
+    searchContent: '',
   },
   effects: {
     *updateState({ payload }, { call, put }) {
@@ -116,6 +124,23 @@ const AppModel: AppModelType = {
         });
       }
     },
+    *headerSearch({ payload }, { call, put }) {
+      const data = yield call(search, payload);
+      if (data && data.success) {
+        yield put({
+          type: 'headerSearchSuccess',
+          payload: {
+            searchList: data.result,
+          },
+        });
+      }
+    },
+    *updateSearchContent({ payload }, { call, put }) {
+      yield put({
+        type: 'headerSearchSuccess',
+        payload: payload,
+      });
+    },
   },
   reducers: {
     updateStateSuccess(state, { payload }) {
@@ -143,6 +168,12 @@ const AppModel: AppModelType = {
       };
     },
     miuscObjectSuccess(state, { payload }) {
+      return {
+        ...state,
+        ...payload,
+      };
+    },
+    headerSearchSuccess(state, { payload }) {
       return {
         ...state,
         ...payload,
