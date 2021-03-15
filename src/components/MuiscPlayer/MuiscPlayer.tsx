@@ -26,7 +26,7 @@ class MuiscPlayer extends PureComponent {
     this.refs.audio.addEventListener('ended', this.audioPlayEnd, false);
   }
   componentDidUpdate(prevProps) {
-    if (prevProps.currentId !== this.props.currentId) {
+    if (prevProps.muiscId != this.props.muiscId) {
       this.startPlay();
     }
   }

@@ -67,79 +67,68 @@ class ArticleDetailPage extends PureComponent {
       <Fragment>
         <Section className={styles.containner}>
           {!isMobile ? (
-            <Row>
-              <Col span={18} className={styles.detailPage}>
-                <div className={styles.detailPageWrap}>
-                  <Typography.Title level={4}>
-                    {articleDetail.title}
-                  </Typography.Title>
-                  <ArticleMetaInfo
-                    article={articleDetail}
-                    dateFormat={'LL'}
-                    className={styles.metaInfo}
-                  />
-                  <HeroImage
-                    source={true}
-                    width={660}
-                    height={393}
-                    isOrigin={!articleDetail.type}
-                    src={articleDetail.heroImage}
-                    className={styles.heroImageSize}
-                    sourceStyle={styles.sourceStyle}
-                  />
-                  {_.isEmpty(articleDetail) ? (
-                    _.map(_.times(3, Number), () => <Skeleton active />)
-                  ) : (
-                    <div className={styles.artileContent}>
-                      {HtmlToReactParser.parseWithInstructions(
-                        articleDetail.content,
-                        () => true,
-                        this.processingInstructions,
-                      )}
-                    </div>
+            <div className={styles.detailPageWrap}>
+              <Typography.Title level={4}>
+                {articleDetail.title}
+              </Typography.Title>
+              <ArticleMetaInfo
+                article={articleDetail}
+                dateFormat={'LL'}
+                className={styles.metaInfo}
+              />
+              <HeroImage
+                source={true}
+                width={660}
+                height={393}
+                isOrigin={!articleDetail.type}
+                src={articleDetail.heroImage}
+                className={styles.heroImageSize}
+                sourceStyle={styles.sourceStyle}
+              />
+              {_.isEmpty(articleDetail) ? (
+                _.map(_.times(3, Number), () => <Skeleton active />)
+              ) : (
+                <div className={styles.artileContent}>
+                  {HtmlToReactParser.parseWithInstructions(
+                    articleDetail.content,
+                    () => true,
+                    this.processingInstructions,
                   )}
                 </div>
-              </Col>
-              <Col span={6}>
-                {/* <ArticleDirectory anchorList={this.tempArr}/> */}
-              </Col>
-            </Row>
+              )}
+            </div>
           ) : (
-            <Row>
-              <Col className={styles.detailPage}>
-                <div className={styles.detailPageWrap}>
-                  <Typography.Title level={4}>
-                    {articleDetail.title}
-                  </Typography.Title>
-                  <ArticleMetaInfo
-                    article={articleDetail}
-                    dateFormat={'LL'}
-                    className={styles.metaInfo}
-                  />
-                  <HeroImage
-                    source={true}
-                    width={document.documentElement.clientWidth - 40}
-                    height={220}
-                    isOrigin={!articleDetail.type}
-                    src={articleDetail.heroImage}
-                    className={styles.heroImageSize}
-                    sourceStyle={styles.sourceStyle}
-                    isMobile={isMobile}
-                  />
-                  {_.isEmpty(articleDetail) ? (
-                    _.map(_.times(3, Number), () => <Skeleton active />)
-                  ) : (
-                    <div className={styles.artileContent}>
-                      {HtmlToReactParser.parseWithInstructions(
-                        articleDetail.content,
-                        () => true,
-                        this.processingInstructions,
-                      )}
-                    </div>
+            <div className={styles.detailPageWrap}>
+              <Typography.Title level={4}>
+                {articleDetail.title}
+              </Typography.Title>
+              <ArticleMetaInfo
+                article={articleDetail}
+                dateFormat={'LL'}
+                className={styles.metaInfo}
+              />
+              <HeroImage
+                source={true}
+                width={document.documentElement.clientWidth - 40}
+                height={220}
+                isOrigin={!articleDetail.type}
+                src={articleDetail.heroImage}
+                className={styles.heroImageSize}
+                sourceStyle={styles.sourceStyle}
+                isMobile={isMobile}
+              />
+              {_.isEmpty(articleDetail) ? (
+                _.map(_.times(3, Number), () => <Skeleton active />)
+              ) : (
+                <div className={styles.artileContent}>
+                  {HtmlToReactParser.parseWithInstructions(
+                    articleDetail.content,
+                    () => true,
+                    this.processingInstructions,
                   )}
                 </div>
-              </Col>
-            </Row>
+              )}
+            </div>
           )}
         </Section>
         {!isMobile && <BackTop />}

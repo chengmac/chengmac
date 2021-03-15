@@ -1,47 +1,35 @@
 @import '~@/themes/vars.less';
 
 .containner {
-  padding-top: 20px;
-
-  & > div {
-    max-width: 960px;
-    margin: 0 auto;
+  .heroImageSize {
+    width: 100%;
+    height: 393.75px;
+    cursor: auto;
   }
+  .detailPageWrap {
+    padding: 40px 20px;
+    background-color: #fff;
 
-  .detailPage {
-    padding-right: 20px;
-    .forMoblie({width: 100%; padding-right: 0px;});
-    .heroImageSize {
-      width: 100%;
-      height: 393.75px;
-      cursor: auto;
+    .artileContent {
+      margin-top: 40px;
+
+      img {
+        .forMoblie({width: 100%;});
+      }
     }
-
-    .detailPageWrap {
-      padding: 40px 20px;
-      background-color: #fff;
-
-      .artileContent {
-        margin-top: 40px;
-
-        img {
-          .forMoblie({width: 100%;});
-        }
-      }
-      .metaInfo {
-        justify-content: center;
-        margin-bottom: 20px;
-      }
-      .sourceStyle {
-        font-size: 16px;
-        padding: 4px 8px;
-        top: 20px;
-        right: 20px;
-      }
-      :global {
-        .mc-typography {
-          text-align: center;
-        }
+    .metaInfo {
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .sourceStyle {
+      font-size: 16px;
+      padding: 4px 8px;
+      top: 20px;
+      right: 20px;
+    }
+    :global {
+      .mc-typography {
+        text-align: center;
       }
     }
   }

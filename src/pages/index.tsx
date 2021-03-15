@@ -10,12 +10,12 @@ class IndexPage extends PureComponent {
     const { minHeight, isMobile } = app;
     return (
       <Fragment>
-        <Section
+        {/* <Section
           className={styles.containner}
           style={{ minHeight: minHeight, paddingTop: isMobile ? 10 : 20 }}
-        >
-          <LandingContent dispatch={dispatch} app={app} loading={loading} />
-        </Section>
+        > */}
+        <LandingContent dispatch={dispatch} app={app} loading={loading} />
+        {/* </Section> */}
       </Fragment>
     );
   }

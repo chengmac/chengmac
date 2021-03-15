@@ -59,7 +59,7 @@ class LandingRightColumn extends PureComponent {
     return muiscId;
   }
   render() {
-    const { labelList, currentMuisc, muiscIdList, loading } = this.props;
+    const { currentMuisc, loading } = this.props;
     return (
       <Fragment>
         <div className={styles.landingRightColumn}>

@@ -4,10 +4,10 @@ import Header from '@/components/Layouts/Header/Header';
 import Footer from '@/components/Layouts/Footer/Footer';
 import HeaderSearch from '@/components/Layouts/Header/HeaderSearch';
 import Section from '@/components/Section/Section';
-import { Layout, Drawer, Menu } from 'antd';
+import { Layout, Drawer, Menu, Row, Col } from 'antd';
 import { AppModelState, connect } from 'umi';
-import Button from '@/components/Button/Button';
 import { SearchOutlined } from '@ant-design/icons';
+import LandingRightColumn from '@/pages/article/components/LandingPage/LandingRightColumn/LandingRightColumn';
 
 class LandingLayout extends PureComponent {
   state = {
@@ -57,7 +57,15 @@ class LandingLayout extends PureComponent {
   }
   render() {
     const { children, app, dispatch, loading } = this.props;
-    const { isMobile, minHeight, searchList, searchContent } = app;
+    const {
+      isMobile,
+      minHeight,
+      searchList,
+      searchContent,
+      labelList,
+      currentMuisc,
+      muiscIdList,
+    } = app;
     const headerProps = {
       isMobile: isMobile,
       openSearch: this.openSearch.bind(this),
@@ -102,7 +110,29 @@ class LandingLayout extends PureComponent {
             className={styles.content}
             style={{ minHeight: minHeight, paddingTop: isMobile ? 50 : 60 }}
           >
-            {children}
+            <Section
+              className={styles.containner}
+              style={{ minHeight: minHeight, paddingTop: isMobile ? 10 : 20 }}
+            >
+              {!isMobile ? (
+                <Row>
+                  <Col span={18} className={styles.landingLeftColumn}>
+                    {children}
+                  </Col>
+                  <Col span={6}>
+                    <LandingRightColumn
+                      labelList={labelList}
+                      dispatch={dispatch}
+                      currentMuisc={currentMuisc}
+                      muiscIdList={muiscIdList}
+                      loading={loading}
+                    />
+                  </Col>
+                </Row>
+              ) : (
+                <Row>{children}</Row>
+              )}
+            </Section>
           </Layout.Content>
           <Footer />
         </Section>
