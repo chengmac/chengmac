@@ -9,21 +9,16 @@ import {
 } from '@ant-design/icons';
 import classnames from 'classnames';
 
-let timer = null;
 class MuiscPlayer extends PureComponent {
   constructor(props: object) {
     super(props);
   }
   state = {
-    resource: 'https://image.chengmac.cn/abcd.mp3',
     isPaused: false,
   };
   componentDidMount() {
-    timer = setTimeout(() => {
-      this.startPlay();
-    }, 10000);
-
     this.refs.audio.addEventListener('ended', this.audioPlayEnd, false);
+    document.body.addEventListener('mousedown', this.startPlay, false);
   }
   componentDidUpdate(prevProps) {
     if (prevProps.muiscId != this.props.muiscId) {
@@ -32,11 +27,10 @@ class MuiscPlayer extends PureComponent {
   }
 
   componentWillUnmount() {
-    clearTimeout(timer);
+    document.body.removeEventListener('mousedown', this.startPlay, false);
   }
 
   audioPlayEnd = () => {
-    console.log(1234);
     this.props.nextSong(this.props.muiscId);
   };
   startPlay = () => {
