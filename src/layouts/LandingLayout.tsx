@@ -2,6 +2,8 @@ import React, { Fragment, PureComponent } from 'react';
 import styles from './LandingLayout.less';
 import Header from '@/components/Layouts/Header/Header';
 import Footer from '@/components/Layouts/Footer/Footer';
+import SideTools from '@/components/Layouts/SideTools/SideTools';
+import Fireworks from '@/components/Fireworks/Fireworks';
 import HeaderSearch from '@/components/Layouts/Header/HeaderSearch';
 import Section from '@/components/Section/Section';
 import { Layout, Drawer, Menu, Row, Col } from 'antd';
@@ -13,6 +15,7 @@ class LandingLayout extends PureComponent {
   state = {
     searchVisible: false,
     siderVisible: false,
+    startPlayFireworks: false,
   };
   openSearch() {
     this.setState({
@@ -55,6 +58,12 @@ class LandingLayout extends PureComponent {
         return this.openSearch();
     }
   }
+
+  startPlay = () => {
+    this.setState({
+      startPlayFireworks: !this.state.startPlayFireworks,
+    });
+  };
   render() {
     const { children, app, dispatch, loading } = this.props;
     const {
@@ -112,7 +121,7 @@ class LandingLayout extends PureComponent {
           >
             <Section
               className={styles.containner}
-              style={{ minHeight: minHeight, paddingTop: isMobile ? 10 : 20 }}
+              style={{ minHeight: '100%', paddingTop: isMobile ? 10 : 20 }}
             >
               {!isMobile ? (
                 <Row>
@@ -135,6 +144,10 @@ class LandingLayout extends PureComponent {
             </Section>
           </Layout.Content>
           <Footer />
+          <SideTools startPlay={this.startPlay} />
+          {this.state.startPlayFireworks && (
+            <Fireworks stopPlay={this.startPlay} />
+          )}
         </Section>
       </Fragment>
     );

@@ -7,7 +7,6 @@ class LandingContent extends PureComponent {
   render() {
     const { app, dispatch, loading } = this.props;
     const { isMobile, labelList, articleList, currentMuisc, muiscIdList } = app;
-    console.log(this.props);
     return (
       <Fragment>
         <LandingLeftColumn isMobile={isMobile} articleList={articleList} />

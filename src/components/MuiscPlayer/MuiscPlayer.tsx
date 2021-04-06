@@ -15,10 +15,11 @@ class MuiscPlayer extends PureComponent {
   }
   state = {
     isPaused: false,
+    isInitStartPlay: false,
   };
   componentDidMount() {
     this.refs.audio.addEventListener('ended', this.audioPlayEnd, false);
-    document.body.addEventListener('mousedown', this.startPlay, false);
+    // document.body.addEventListener('mousedown', this.pageInitStartPlay, false);
   }
   componentDidUpdate(prevProps) {
     if (prevProps.muiscId != this.props.muiscId) {
@@ -27,9 +28,19 @@ class MuiscPlayer extends PureComponent {
   }
 
   componentWillUnmount() {
-    document.body.removeEventListener('mousedown', this.startPlay, false);
+    document.body.removeEventListener(
+      'mousedown',
+      this.pageInitStartPlay,
+      false,
+    );
   }
 
+  pageInitStartPlay = () => {
+    if (!this.state.isInitStartPlay) {
+      this.refs.audio.play();
+      this.setState({ isInitStartPlay: true, isPaused: true });
+    }
+  };
   audioPlayEnd = () => {
     this.props.nextSong(this.props.muiscId);
   };
