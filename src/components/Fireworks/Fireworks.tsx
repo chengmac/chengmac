@@ -46,22 +46,6 @@ class Fireworks extends PureComponent {
   }
 
   startFire = () => {
-    // let textcanvas = document.getElementById('textCanvas');
-    // let ctx = textcanvas.getContext('2d');
-    // let bgcanvas = document.getElementById('bgCanvas');
-    // let ctx2 = bgcanvas.getContext('2d');
-    context.fillStyle = '#000';
-    let fontSize = 200;
-    const text = '张刘琴我爱你';
-    let textWidth = 99999999;
-    while (textWidth > window.innerWidth) {
-      context.font = `900 ${fontSize--}px Arial`;
-      textWidth = context.measureText(text).width;
-    }
-    // textcanvas.width = textWidth;
-    // textcanvas.height = fontSize * 1.5;
-    context.font = `900 ${fontSize}px Arial`;
-    context.fillText(text, 0, fontSize);
     this.fireAnimation();
   };
 
@@ -103,11 +87,9 @@ class Fireworks extends PureComponent {
         >
           <CloseCircleOutlined style={{ fontSize: 20, color: '#888' }} />
         </span>
-        {/* <canvas id="textCanvas"></canvas> */}
         <canvas id="myCanvas">
           Your browser does not support the HTML5 canvas tag.
         </canvas>
-        {/* <canvas id="bgCanvas"></canvas> */}
       </div>
     );
   }

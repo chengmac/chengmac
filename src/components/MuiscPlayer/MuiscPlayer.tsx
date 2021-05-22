@@ -19,7 +19,7 @@ class MuiscPlayer extends PureComponent {
   };
   componentDidMount() {
     this.refs.audio.addEventListener('ended', this.audioPlayEnd, false);
-    // document.body.addEventListener('mousedown', this.pageInitStartPlay, false);
+    document.body.addEventListener('mousedown', this.pageInitStartPlay, false);
   }
   componentDidUpdate(prevProps) {
     if (prevProps.muiscId != this.props.muiscId) {

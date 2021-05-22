@@ -1,6 +1,6 @@
 export default {
   articleSave: 'POST /article/save',
-  getAllArticle: '/article/getAllArticle',
+  getPublishArticle: '/article/getPublishArticle',
   labelList: '/article/labelList',
   getArticleById: '/article/getArticleById',
   // muisc

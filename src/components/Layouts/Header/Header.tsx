@@ -29,24 +29,24 @@ class Header extends PureComponent {
         onClick={() => this.props.openSearch()}
       ></Button>
     );
-    if (!isMobile) {
-      headerRight.unshift(search);
-    } else {
-      const mobileMenu = (
-        <Button
-          className={styles.openMenuBtn}
-          noBorder
-          onClick={() => this.props.openSiderMenu()}
-        >
-          <div className={siderVisible ? styles.closeMenu : styles.openMenu}>
-            <span />
-            <span />
-            <span />
-          </div>
-        </Button>
-      );
-      headerRight.unshift(mobileMenu);
-    }
+    headerRight.unshift(search);
+    // if (!isMobile) {
+    // } else {
+    //   const mobileMenu = (
+    //     <Button
+    //       className={styles.openMenuBtn}
+    //       noBorder
+    //       onClick={() => this.props.openSiderMenu()}
+    //     >
+    //       <div className={siderVisible ? styles.closeMenu : styles.openMenu}>
+    //         <span />
+    //         <span />
+    //         <span />
+    //       </div>
+    //     </Button>
+    //   );
+    //   headerRight.unshift(mobileMenu);
+    // }
     return (
       <Layout.Header className={styles.header}>
         <div className={classnames(styles.headerWrap, {})}>

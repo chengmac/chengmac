@@ -4,7 +4,7 @@ class Fireworks {
     this.y = y;
     this.hue = hue;
     this.lightness = 50;
-    this.size = 15 + Math.random() * 10;
+    this.size = 2 + Math.random() * 10;
     const angle = Math.random() * 2 * Math.PI;
     const blastSpeed = 1 + Math.random() * 6;
     this.xSpeed = Math.cos(angle) * blastSpeed;
@@ -85,18 +85,19 @@ class Rocket {
     this.y = c2.height - 15;
     this.angle = (Math.random() * Math.PI) / 4 - Math.PI / 6;
     this.blastSpeed = 6 + Math.random() * 7;
-    this.shardCount = 15 + Math.floor(Math.random() * 15);
     this.xSpeed = Math.sin(this.angle) * this.blastSpeed;
     this.ySpeed = -Math.cos(this.angle) * this.blastSpeed;
     this.hue = Math.floor(Math.random() * 360);
+    this.fireHue = Math.floor(Math.random() * 51) + 50;
     this.trail = [];
+    this.hueVariance = 200;
   }
   draw(ctx) {
     ctx.save();
     ctx.translate(this.x, this.y);
     ctx.rotate(Math.atan2(this.ySpeed, this.xSpeed) + Math.PI / 2);
     ctx.fillStyle = `hsl(${this.hue}, 100%, 50%)`;
-    ctx.fillRect(0, 0, 5, 15);
+    ctx.fillRect(0, 0, 8, 12);
     ctx.restore();
   }
   update() {
@@ -107,7 +108,15 @@ class Rocket {
 
   explode(targets, shards) {
     for (let i = 0; i < 70; i++) {
-      shards.push(new Fireworks(this.x, this.y, this.hue, targets));
+      let hue =
+        Math.floor(
+          Math.random() *
+            (this.fireHue +
+              this.hueVariance -
+              (this.fireHue - this.hueVariance)),
+        ) +
+        (this.fireHue - this.hueVariance);
+      shards.push(new Fireworks(this.x, this.y, hue, targets));
     }
     return shards;
   }

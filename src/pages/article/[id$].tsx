@@ -3,14 +3,21 @@ import styles from './index.less';
 import ArticleDetailPage from './components/ArticleDetailPage/ArticleDetailPage';
 import Section from '@/components/Section/Section';
 import { connect, AppModelState, ArticleModelState } from 'umi';
+import { Helmet } from "react-helmet";
 
 class ArticleDetail extends PureComponent {
   render() {
     const { app, article } = this.props;
     const { isMobile, minHeight } = app;
-    console.log(article)
+    const { articleDetail } = article;
+    const label = articleDetail.label && articleDetail.label.join(',');
     return (
       <Fragment>
+        <Helmet>
+          <title>{articleDetail.title}</title>
+          <meta name="Keywords" content={label}/>
+          <meta name="description" content={articleDetail.subtitle}/>
+        </Helmet>
         <Section style={{minHeight: minHeight}}>
           <ArticleDetailPage
             articleDetail={article.articleDetail}

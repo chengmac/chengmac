@@ -1,3 +1,5 @@
+@import '~@/themes/vars.less';
+
 .header {
   width: 100%;
   box-shadow: -1px -1px 10px rgba(0, 0, 0, 0.2);
@@ -21,6 +23,7 @@
         padding: 0 20px;
         height: 60px;
         line-height: 60px;
+        .forMoblie({height: 50px; line-height: 50px;});
         :global {
           .anticon-search {
             font-size: 20px;

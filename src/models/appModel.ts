@@ -4,7 +4,7 @@ import { matchPathRegexp } from '@/utils';
 import Cookies from 'js-cookie';
 
 const {
-  getAllArticle,
+  getPublishArticle,
   labelList,
   login,
   getLikeMiuscList,
@@ -27,7 +27,7 @@ export interface AppModelType {
   state: AppModelState;
   effects: {
     updateState: Effect;
-    getAllArticle: Effect;
+    getPublishArticle: Effect;
     getLabelList: Effect;
     getLikeMiuscList: Effect;
     getMiuscDetail: Effect;
@@ -36,7 +36,7 @@ export interface AppModelType {
   };
   reducers: {
     updateStateSuccess: ImmerReducer<AppModelState>;
-    getAllArticleSuccess: ImmerReducer<AppModelState>;
+    getPublishArticleSuccess: ImmerReducer<AppModelState>;
     getLabelListSuccess: ImmerReducer<AppModelState>;
     getMiuscListSuccess: ImmerReducer<AppModelState>;
     miuscObjectSuccess: ImmerReducer<AppModelState>;
@@ -64,12 +64,12 @@ const AppModel: AppModelType = {
         payload: payload,
       });
     },
-    *getAllArticle({ payload }, { call, put }) {
-      const data = yield call(getAllArticle, payload);
+    *getPublishArticle({ payload }, { call, put }) {
+      const data = yield call(getPublishArticle, payload);
       if (data && data.success) {
         let articleList = data?.result?.list;
         yield put({
-          type: 'getAllArticleSuccess',
+          type: 'getPublishArticleSuccess',
           payload: {
             articleList: articleList,
           },
@@ -149,7 +149,7 @@ const AppModel: AppModelType = {
         ...payload,
       };
     },
-    getAllArticleSuccess(state, { payload }) {
+    getPublishArticleSuccess(state, { payload }) {
       return {
         ...state,
         ...payload,
@@ -186,11 +186,10 @@ const AppModel: AppModelType = {
         const isLandingPage = matchPathRegexp('/', pathname);
         if (isLandingPage) {
           dispatch({
-            type: 'getAllArticle',
+            type: 'getPublishArticle',
             payload: {
-              status: 'PUB',
               page: 1,
-              pageSize: 10,
+              pageSize: 20,
             },
           });
           dispatch({

@@ -19,5 +19,4 @@
 /src/.umi
 /src/.umi-production
 /src/.umi-test
-/.env.local
-*.local
+.umirc.local.ts
